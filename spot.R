@@ -14,7 +14,7 @@ library("geosphere")
 options(digits=12)
 
 pw <- {
-  "XXXX";
+  "0347";
   
 }
 
@@ -36,9 +36,9 @@ print(df_users$id)
 user = readline(prompt="Enter user number: ")
 
 # get data for specific user
-sqls = paste0("SELECT username, gender, age FROM user_table, user_table_pp WHERE username=email AND id = ",user)
+sqls = paste0("SELECT gender, age FROM user_table, user_table_pp WHERE username=email AND id = ",user)
 df_pdata <- dbGetQuery(con, sqls)
-cat(paste0("Gender: ",df_pdata$gender, " age: ",df_pdata$age," (Name: ",df_pdata$username,")\n"))
+cat(paste0("Gender: ",df_pdata$gender, " age: ",df_pdata$age,"\n"))
 
 
 # get trip for specific user
